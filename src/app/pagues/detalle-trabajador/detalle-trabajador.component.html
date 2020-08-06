@@ -1,0 +1,22 @@
+<a href="#"> Atras</a>
+<h2 mat-dialog-title>datos persomales</h2>
+<div class="container">
+    <div>
+        <img src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg" height="20%" width="20%" style="padding-left:20px;">
+
+        <mat-card>
+            <h4><strong>{{trabajador.nombre}}</strong></h4>
+            <h4><strong>{{trabajador.apellidos}}</strong></h4>
+            <h4><strong>{{trabajador.salario| currency:'S/. ':'symbol-narrow':'.0-0'}}</strong></h4>
+            <h4><strong>{{trabajador.correo}}</strong></h4>
+            <h4><strong>{{trabajador.cargo}}</strong></h4>
+        </mat-card>
+    </div>
+
+
+</div>
+<section>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" routerLink="/editar/{{trabajador.id}}"> editar</button>
+    </div>
+</section>

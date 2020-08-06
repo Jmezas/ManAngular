@@ -1,0 +1,50 @@
+<a href="#"> Atras</a>
+<h2 mat-dialog-title class="espacio">editar trabajador</h2>
+<div autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()" class="espacio">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="escriba su nombre el nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+        <mat-icon matSuffix>account_box</mat-icon>
+        <mat-error>es necesario el nombre</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input matInput placeholder="escriba su nombre el nombre" formControlName="apellidos" [class.is-invalid]="apellidoNoValido">
+        <mat-icon matSuffix>account_box</mat-icon>
+        <mat-error>es necesario el nombre</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <mat-select [(value)]="trabajador.cargo" formControlName="cargo">
+            <mat-option *ngFor="let item of cargo" [value]="item.id">{{item.nombre}}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>arrow_circle_down</mat-icon>
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>correo</mat-label>
+        <input matInput placeholder="escriba su nombre el nombre" formControlName="correo" [class.is-invalid]="correoNoValido">
+        <mat-icon matSuffix>mark_email_unread</mat-icon>
+        <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="5000" #gridsize (change)="updateSetting($event)"></mat-slider>
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>salario</mat-label>
+        <input matInput [value]="gridsize.value" formControlName="salario" type="number">
+    </mat-form-field>
+
+</div>
+<section>
+    <div class="example-button-row espacio">
+
+        <button type="submit" mat-raised-button color="primary" (click)="guardar()">guardar</button>
+    </div>
+</section>
